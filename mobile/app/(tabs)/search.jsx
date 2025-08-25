@@ -131,7 +131,11 @@ const SearchScreen = () => {
           <FlatList
             data={recipes}
             renderItem={({ item }) => <RecipeCard recipe={item} />}
-            keyExtractor={(item) => item.id.toString()}
+            keyExtractor={(item, index) =>
+              `${item.id}-${Date.now()}-${Math.random()
+                .toString(36)
+                .substr(2, 9)}`
+            }
             numColumns={1}
             columnWrapperStyle={numColumns > 1 ? searchStyles.row : null}
             contentContainerStyle={searchStyles.recipesGrid}

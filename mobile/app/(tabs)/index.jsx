@@ -233,7 +233,7 @@ const HomeScreen = () => {
             <FlatList
               data={recipes}
               renderItem={({ item }) => <RecipeCard recipe={item} />}
-              keyExtractor={(item) => item.key}
+              keyExtractor={(item, index) => `${item.id}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`}
               scrollEnabled={false}
               numColumns={1}
             />

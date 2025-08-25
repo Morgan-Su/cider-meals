@@ -181,7 +181,7 @@ const RecipeDetailScreen = () => {
       >
         <View
           style={{
-            backgroundColor: "#FF69B4CC",
+            backgroundColor: "#bb49bbcc",
             borderRadius: 16,
             padding: 14,
             flex: 1,
@@ -198,7 +198,7 @@ const RecipeDetailScreen = () => {
         </View>
         <View
           style={{
-            backgroundColor: "#00BFFFCC",
+            backgroundColor: "#1f21b1cc",
             borderRadius: 16,
             padding: 14,
             flex: 1,
@@ -215,48 +215,61 @@ const RecipeDetailScreen = () => {
         </View>
       </View>
 
-      <View style={recipeDetailStyles.sectionContainer}>
-        <View style={recipeDetailStyles.sectionTitleRow}>
-          <LinearGradient
-            colors={["#9C27B0", "#673AB7"]}
-            style={recipeDetailStyles.sectionIcon}
-          >
-            <Ionicons name="book" size={16} color={COLORS.white} />
-          </LinearGradient>
-          <Text style={recipeDetailStyles.sectionTitle}>Instructions</Text>
-          <View style={recipeDetailStyles.countBadge}>
-            <Text style={recipeDetailStyles.countText}>
-              {recipe.instructions.length}
-            </Text>
-          </View>
-        </View>
-
-        <View style={recipeDetailStyles.instructionsContainer}>
+      <View
+        style={{
+          margin: 16,
+          backgroundColor: "#F5F5F5",
+          borderRadius: 24,
+          padding: 20,
+          shadowColor: "#000",
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.1,
+          shadowRadius: 8,
+          elevation: 3,
+        }}
+      >
+        <Text style={{ fontSize: 20, fontWeight: "700", marginBottom: 12 }}>
+          Instructions
+        </Text>
+        <View
+          style={{
+            backgroundColor: "#fff",
+            borderRadius: 16,
+            padding: 16,
+            shadowColor: "#000",
+            shadowOffset: { width: 0, height: 1 },
+            shadowOpacity: 0.05,
+            shadowRadius: 4,
+            elevation: 1,
+          }}
+        >
           {recipe.instructions.map((instruction, index) => (
-            <View key={index} style={recipeDetailStyles.instructionCard}>
+            <View
+              key={index}
+              style={{
+                flexDirection: "row",
+                marginBottom: 12,
+                alignItems: "flex-start",
+              }}
+            >
               <LinearGradient
-                colors={[COLORS.primary, COLORS.primary + "CC"]}
-                style={recipeDetailStyles.stepIndicator}
+                colors={["#090709ff", "#13151cff"]}
+                style={{
+                  width: 32,
+                  height: 32,
+                  borderRadius: 16,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginRight: 12,
+                }}
               >
-                <Text style={recipeDetailStyles.stepNumber}>{index + 1}</Text>
-              </LinearGradient>
-              <View style={recipeDetailStyles.instructionContent}>
-                <Text style={recipeDetailStyles.instructionText}>
-                  {instruction}
+                <Text style={{ color: "#fff", fontWeight: "700" }}>
+                  {index + 1}
                 </Text>
-                <View style={recipeDetailStyles.instructionFooter}>
-                  <Text style={recipeDetailStyles.stepLabel}>
-                    Step {index + 1}
-                  </Text>
-                  <TouchableOpacity style={recipeDetailStyles.completeButton}>
-                    <Ionicons
-                      name="checkmark"
-                      size={16}
-                      color={COLORS.primary}
-                    />
-                  </TouchableOpacity>
-                </View>
-              </View>
+              </LinearGradient>
+              <Text style={{ flex: 1, fontSize: 16, lineHeight: 24 }}>
+                {instruction}
+              </Text>
             </View>
           ))}
         </View>
@@ -277,34 +290,6 @@ const RecipeDetailScreen = () => {
           </View>
         </View>
       )}
-
-      <TouchableOpacity
-        onPress={handleToggleSave}
-        disabled={isSaving}
-        style={{ margin: 20, borderRadius: 24, overflow: "hidden" }}
-      >
-        <LinearGradient
-          colors={["#FF69B4", "#00BFFF"]}
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: 16,
-          }}
-        >
-          <Ionicons name="bookmark" size={20} color={COLORS.white} />
-          <Text
-            style={{
-              color: COLORS.white,
-              fontWeight: "700",
-              fontSize: 18,
-              marginLeft: 8,
-            }}
-          >
-            {isSaved ? "Liked" : "Save Recipe"}
-          </Text>
-        </LinearGradient>
-      </TouchableOpacity>
     </ScrollView>
   );
 };
