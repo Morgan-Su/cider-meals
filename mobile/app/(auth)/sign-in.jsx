@@ -172,6 +172,64 @@ const SignInScreen = () => {
               </Text>
             </TouchableOpacity>
           </View>
+
+          <View
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: 24,
+              padding: 20,
+              marginTop: 30,
+              marginBottom: 30,
+              shadowColor: "#000",
+              shadowOpacity: 0.15,
+              shadowRadius: 10,
+              elevation: 5,
+            }}
+          >
+            <LinearGradient
+              colors={["#FF6A88", "#FF9A8B"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                borderRadius: 24,
+                opacity: 0.2,
+              }}
+            />
+            <Text
+              style={{
+                fontSize: 20,
+                fontWeight: "700",
+                color: "#333",
+                marginBottom: 12,
+              }}
+            >
+              About Us
+            </Text>
+            <ScrollView
+              style={{ maxHeight: 140 }}
+              showsVerticalScrollIndicator={true}
+            >
+              <Text
+                style={{
+                  fontSize: 14,
+                  color: "#444",
+                  lineHeight: 20,
+                }}
+              >
+                Tired of complicated recipes? Cider Meals makes healthy eating
+                simple and enjoyable. Get inspired with our easy-to-follow
+                recipes, practical meal prep guides, and fresh seasonal ideas.
+                We believe cooking should be a fun and rewarding adventure.
+                Explore a world of flavor, take advantage of our weekly
+                specials, and connect with fellow food lovers.
+              </Text>
+            </ScrollView>
+          </View>
         </ScrollView>
       </KeyboardAvoidingView>
     </View>

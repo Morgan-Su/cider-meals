@@ -50,6 +50,15 @@ const TabsLayout = () => {
           ),
         }}
       />
+      <Tabs.Screen
+        name="cider-fts"
+        options={{
+          title: "Cider-Fts",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="book" size={size} color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 };

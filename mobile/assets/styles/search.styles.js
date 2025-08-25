@@ -126,4 +126,14 @@ export const searchStyles = StyleSheet.create({
     textAlign: "center",
     lineHeight: 20,
   },
+  noteCard: {
+    backgroundColor: COLORS.white,
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 12,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
+  },
 });

@@ -14,11 +14,11 @@ export default function CategoryFilter({
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={homeStyles.categoryFilterScrollContent}
       >
-        {categories.map((category) => {
+        {categories.map((category, categoryIdx) => {
           const isSelected = selectedCategory === category.name;
           return (
             <TouchableOpacity
-              key={category.id}
+              key={categoryIdx}
               style={[
                 homeStyles.categoryButton,
                 isSelected && homeStyles.selectedCategory,

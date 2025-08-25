@@ -19,7 +19,7 @@ import RecipeCard from "../../components/RecipeCard";
 
 const COLORS = {
   bg: "#F3F0FF",
-  primary: ["#FF6EC7", "#6E3BFF"],
+  primary: ["#b73786ff", "#6E3BFF"],
   text: "#1E1E2F",
   neon: "#FF6EC7",
   accent: "#6E3BFF",
@@ -50,7 +50,7 @@ const HomeScreen = () => {
       setLoading(true);
       const [apiCategories, randomMeals, featuredMeal] = await Promise.all([
         MealAPI.getCategories(),
-        MealAPI.getRandomMeals(6),
+        MealAPI.getRandomMeals(3),
         MealAPI.getRandomMeal(),
       ]);
 
@@ -70,7 +70,6 @@ const HomeScreen = () => {
           return { ...transformed, key: transformed.id + "-" + index };
         })
         .filter((meal) => meal !== null);
-
       setRecipes(transformedMeals);
       const transformedFeatured = MealAPI.transformMealData(featuredMeal);
       setFeaturedRecipe(transformedFeatured);
