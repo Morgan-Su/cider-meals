@@ -1,21 +1,21 @@
+import { useClerk } from "@clerk/clerk-expo";
+import { Ionicons } from "@expo/vector-icons";
+import { Image } from "expo-image";
+import { useRouter } from "expo-router";
+import { useEffect, useState } from "react";
 import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  FlatList,
-  RefreshControl,
   Alert,
   Dimensions,
+  FlatList,
+  RefreshControl,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { useEffect, useState } from "react";
-import { useRouter } from "expo-router";
-import { useClerk } from "@clerk/clerk-expo";
-import { MealAPI } from "../../services/mealAPI";
-import { Image } from "expo-image";
-import { Ionicons } from "@expo/vector-icons";
 import CategoryFilter from "../../components/CategoryFilter";
 import RecipeCard from "../../components/RecipeCard";
+import { MealAPI } from "../../services/mealAPI";
 
 const COLORS = {
   bg: "#F3F0FF",
@@ -67,7 +67,7 @@ const HomeScreen = () => {
         .map((meal, index) => {
           const transformed = MealAPI.transformMealData(meal);
           if (!transformed) return null;
-          return { ...transformed, key: transformed.id + "-" + index };
+          return transformed;
         })
         .filter((meal) => meal !== null);
       setRecipes(transformedMeals);
@@ -87,7 +87,7 @@ const HomeScreen = () => {
         .map((meal, index) => {
           const transformed = MealAPI.transformMealData(meal);
           if (!transformed) return null;
-          return { ...transformed, key: transformed.id + "-" + index };
+          return transformed;
         })
         .filter((meal) => meal !== null);
       setRecipes(transformedMeals);

@@ -1,18 +1,18 @@
+import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
 import {
-  View,
+  FlatList,
   Text,
   TextInput,
   TouchableOpacity,
-  FlatList,
+  View,
 } from "react-native";
-import { MealAPI } from "../../services/mealAPI";
-import { useDebounce } from "../../hooks/useDebounce";
 import { searchStyles } from "../../assets/styles/search.styles";
-import { COLORS } from "../../constants/colors";
-import { Ionicons } from "@expo/vector-icons";
-import RecipeCard from "../../components/RecipeCard";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import RecipeCard from "../../components/RecipeCard";
+import { COLORS } from "../../constants/colors";
+import { useDebounce } from "../../hooks/useDebounce";
+import { MealAPI } from "../../services/mealAPI";
 
 const SearchScreen = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -131,11 +131,15 @@ const SearchScreen = () => {
           <FlatList
             data={recipes}
             renderItem={({ item }) => <RecipeCard recipe={item} />}
+<<<<<<< Updated upstream
             keyExtractor={(item, index) =>
               `${item.id}-${Date.now()}-${Math.random()
                 .toString(36)
                 .substr(2, 9)}`
             }
+=======
+            keyExtractor={(item, index) => `${item.id}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`}
+>>>>>>> Stashed changes
             numColumns={1}
             columnWrapperStyle={numColumns > 1 ? searchStyles.row : null}
             contentContainerStyle={searchStyles.recipesGrid}
