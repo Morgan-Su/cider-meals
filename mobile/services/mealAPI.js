@@ -6,6 +6,9 @@ export const MealAPI = {
       const response = await fetch(
         `${BASE_URL}/search.php?s=${encodeURIComponent(query)}`
       );
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
       return data.meals || [];
     } catch (error) {
@@ -17,6 +20,9 @@ export const MealAPI = {
   getMealById: async (id) => {
     try {
       const response = await fetch(`${BASE_URL}/lookup.php?i=${id}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
       return data.meals ? data.meals[0] : null;
     } catch (error) {
@@ -28,6 +34,9 @@ export const MealAPI = {
   getRandomMeal: async () => {
     try {
       const response = await fetch(`${BASE_URL}/random.php`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
       return data.meals ? data.meals[0] : null;
     } catch (error) {

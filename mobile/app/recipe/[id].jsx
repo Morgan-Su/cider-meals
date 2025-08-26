@@ -1,23 +1,23 @@
-import {
-  View,
-  Text,
-  Alert,
-  ScrollView,
-  TouchableOpacity,
-  Dimensions,
-} from "react-native";
-import { useLocalSearchParams, useRouter } from "expo-router";
-import { useEffect, useState } from "react";
 import { useUser } from "@clerk/clerk-expo";
-import { API_URL } from "../../constants/api";
-import { MealAPI } from "../../services/mealAPI";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-import { COLORS } from "../../constants/colors";
-import { Ionicons } from "@expo/vector-icons";
+import { useLocalSearchParams, useRouter } from "expo-router";
+import { useEffect, useState } from "react";
+import {
+  Alert,
+  Dimensions,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { WebView } from "react-native-webview";
 import { recipeDetailStyles } from "../../assets/styles/recipe-detail.styles";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import { API_URL } from "../../constants/api";
+import { COLORS } from "../../constants/colors";
+import { MealAPI } from "../../services/mealAPI";
 
 const RecipeDetailScreen = () => {
   const { id: recipeId } = useLocalSearchParams();
